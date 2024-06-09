@@ -356,26 +356,30 @@
                                 <div class="card-body">
                                   <div class="d-sm-flex justify-content-between align-items-start">
                                     <div>
-                                      <h2 class="card-title card-title-dash">Stagiares</h2>
-                                      
-                                        <div *ngIf="stagiaires!=null">
+                                      Identifiant: <input type="text" [(ngModel)]="searchQuery" placeholder="Search by ID" (ngModelChange)="updateFilteredStagiaires()">
+                                      <h2 class="card-title card-title-dash">Stagiaires</h2>
+                                      <div *ngIf="filteredStagiaires && filteredStagiaires.length > 0">
                                         <table>
                                           <thead>
                                             <tr>
                                               <th>Nom</th>
                                               <th>Prenom</th>
                                               <th>Identifiant</th>
+                                              <th>Attestations</th>
                                             </tr>
                                           </thead>
                                           <tbody>
-                                            <tr *ngFor="let stagiaire of stagiaires">
-                                              <td>{{stagiaire.nom}}</td>
-                                              <td>{{stagiaire.prenom}}</td>
-                                              <td>{{stagiaire.identifiant}}</td>
+                                            <tr *ngFor="let stagiaire of filteredStagiaires">
+                                              <td>{{ stagiaire.nom }}</td>
+                                              <td>{{ stagiaire.prenom }}</td>
+                                              <td>{{ stagiaire.identifiant }}</td>
+                                              <td><a [routerLink]="['/attestations', stagiaire.identifiant]">view</a></td>
                                             </tr>
-                                           
                                           </tbody>
                                         </table>
+                                      </div>
+                                      <div *ngIf="filteredStagiaires && filteredStagiaires.length === 0">
+                                        No stagiaires found.
                                       </div>
                                     </div>
                                     <div id="performanceLine-legend"></div>
