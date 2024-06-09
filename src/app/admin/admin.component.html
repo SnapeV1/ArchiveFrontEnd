@@ -358,34 +358,25 @@
                                     <div>
                                       <h2 class="card-title card-title-dash">Stagiares</h2>
                                       
-                                        
+                                        <div *ngIf="stagiaires!=null">
                                         <table>
                                           <thead>
                                             <tr>
-                                              <th>Name</th>
-                                              <th>Age</th>
-                                              <th>City</th>
+                                              <th>Nom</th>
+                                              <th>Prenom</th>
+                                              <th>Identifiant</th>
                                             </tr>
                                           </thead>
                                           <tbody>
-                                            <tr>
-                                              <td>John Doe</td>
-                                              <td>28</td>
-                                              <td>New York</td>
+                                            <tr *ngFor="let stagiaire of stagiaires">
+                                              <td>{{stagiaire.nom}}</td>
+                                              <td>{{stagiaire.prenom}}</td>
+                                              <td>{{stagiaire.identifiant}}</td>
                                             </tr>
-                                            <tr>
-                                              <td>Jane Smith</td>
-                                              <td>34</td>
-                                              <td>Los Angeles</td>
-                                            </tr>
-                                            <tr>
-                                              <td>Emily Johnson</td>
-                                              <td>22</td>
-                                              <td>Chicago</td>
-                                            </tr>
+                                           
                                           </tbody>
                                         </table>
-                                    
+                                      </div>
                                     </div>
                                     <div id="performanceLine-legend"></div>
                                   </div>
